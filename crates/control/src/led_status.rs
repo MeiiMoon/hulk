@@ -82,6 +82,7 @@ impl LedStatus {
             PrimaryState::Penalized => Rgb::RED,
             PrimaryState::Finished => Rgb::BLACK,
             PrimaryState::Calibration => Rgb::PURPLE,
+            PrimaryState::Animation => Rgb::TURQUOISE
         };
 
         let at_least_one_ball_data_top =
