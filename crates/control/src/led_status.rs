@@ -75,14 +75,21 @@ impl LedStatus {
                 true => Rgb::BLUE,
                 false => Rgb::BLACK,
             },
+            PrimaryState::Animation => match self.blink_state {
+                true => Rgb::TURQUOISE,
+                false => Rgb::PURPLE,
+            },
+            PrimaryState::AnimationStiff => match self.blink_state {
+                true => Rgb::TURQUOISE,
+                false => Rgb::GREEN,
+            },
             PrimaryState::Initial => Rgb::BLACK,
             PrimaryState::Ready => Rgb::BLUE,
             PrimaryState::Set => Rgb::YELLOW,
             PrimaryState::Playing => Rgb::GREEN,
             PrimaryState::Penalized => Rgb::RED,
             PrimaryState::Finished => Rgb::BLACK,
-            PrimaryState::Calibration => Rgb::PURPLE,
-            PrimaryState::Animation => Rgb::TURQUOISE
+            PrimaryState::Calibration => Rgb::PURPLE
         };
 
         let at_least_one_ball_data_top =
@@ -262,7 +269,7 @@ impl LedStatus {
         last_ball_data_bottom_too_old: bool,
     ) -> (Eye, Eye) {
         match primary_state {
-            PrimaryState::Unstiff => {
+            PrimaryState::Unstiff | PrimaryState::Animation => {
                 let rainbow_eye = Self::get_rainbow_eye(cycle_start_time);
                 (rainbow_eye, rainbow_eye)
             }
