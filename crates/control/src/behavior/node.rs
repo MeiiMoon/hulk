@@ -126,7 +126,6 @@ impl Behavior {
         }
 
         let mut actions = vec![
-            Action::Animation,
             Action::Unstiff,
             Action::SitDown,
             Action::Penalize,
@@ -137,6 +136,7 @@ impl Behavior {
             Action::Stand,
             Action::InterceptBall,
             Action::Calibrate,
+            Action::Animation,
             Action::Animationstiff
         ];
 
