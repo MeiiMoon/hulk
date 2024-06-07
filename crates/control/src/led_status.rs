@@ -266,7 +266,7 @@ impl LedStatus {
         last_ball_data_bottom_too_old: bool,
     ) -> (Eye, Eye) {
         match primary_state {
-            PrimaryState::Unstiff | PrimaryState::Animation {stiff: true} => {
+            PrimaryState::Unstiff | PrimaryState::Animation {stiff: true} | PrimaryState::Animation {stiff: false} => {
                 let rainbow_eye = Self::get_rainbow_eye(cycle_start_time);
                 (rainbow_eye, rainbow_eye)
             }
